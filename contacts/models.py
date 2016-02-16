@@ -8,6 +8,7 @@ class Contact(models.Model):
     last_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=64)
     email = models.EmailField(blank=True, null=True)
+    picture = models.ImageField(upload_to='pictures/', blank=True, null=True)
 
     def __str__(self):
         return ' '.join((self.first_name, self.last_name))

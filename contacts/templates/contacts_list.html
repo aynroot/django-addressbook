@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block title %} Contacts List {% endblock %}
 
@@ -13,8 +14,11 @@
                 <div class="contact-block">
                     <span class="pull-left">
                         <img class="img-circle media-object contact-photo"
-                             src="https://unsplash.imgix.net/photo-1423683249427-8ca22bd873e0?w=1024&amp;q=50&amp;fm=jpg&amp;s=5e57c661d0f772ce269188a6f5325708"
-                             height="64" width="64">
+                                {% if contact.picture %}
+                                    src="{{ contact.picture.url }}"
+                                {% else %}
+                                    src="{% static 'images/profile_pic_stub.jpg' %}"
+                                {% endif %}>
                     </span>
                     <div class="media-body">
                         <div class="clearfix">

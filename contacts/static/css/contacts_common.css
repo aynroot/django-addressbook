@@ -10,6 +10,8 @@ div.new-contact-link {
 
 .contact-photo {
     margin-right: 15px;
+    width: 64px;
+    height: 64px;
 }
 
 .contact-name {
