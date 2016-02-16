@@ -69,3 +69,4 @@ target/
 
 # db files
 db.sqlite3
+media/
