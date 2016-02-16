@@ -1,11 +1,46 @@
-<h1>Contacts</h1>
-<ul>
-    {% for contact in contacts %}
-    <li>{{ contact }}:
-    <a href="{% url "edit_contact" contact.id %}">edit</a>
-    <a href="{% url "delete_contact" contact.id %}">delete</a>
-    </li>
-    {% endfor %}
-</ul>
+{% extends 'base.html' %}
 
-<a href="{% url "create_new_contact" %}">New</a>
+{% block title %} Contacts List {% endblock %}
+
+{% block content %}
+
+    <h1 class="text-center">Contacts</h1>
+
+    <div class="new-contact-link"><a href="{% url "create_new_contact" %}">Create New Contact</a></div>
+    <ul>
+        {% for contact in contacts %}
+            <li class="media" id="1">
+                <div class="contact-block">
+                    <span class="pull-left">
+                        <img class="img-circle media-object contact-photo"
+                             src="https://unsplash.imgix.net/photo-1423683249427-8ca22bd873e0?w=1024&amp;q=50&amp;fm=jpg&amp;s=5e57c661d0f772ce269188a6f5325708"
+                             height="64" width="64">
+                    </span>
+                    <div class="media-body">
+                        <div class="clearfix">
+                            <div class="contact-name">
+                                <h4 class="media-heading">{{ contact }}</h4>
+                            </div>
+                            <div class="contact-edit-buttons">
+                                <a href="{% url "edit_contact" contact.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="{% url "delete_contact" contact.id %}"><span class="glyphicon glyphicon-trash delete-contact"></span></a>
+                            </div>
+                        </div>
+                        <table class="contact-details">
+                            <tr>
+                                <td>Phone:</td>
+                                <td>{{ contact.phone }}</td>
+                            </tr>
+                            {% if contact.email %}
+                                <tr>
+                                    <td>Email:</td>
+                                    <td>{{ contact.email }}</td>
+                                </tr>
+                            {% endif %}
+                        </table>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

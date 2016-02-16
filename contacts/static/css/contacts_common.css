@@ -1,0 +1,41 @@
+.center-div{
+    margin: 25px auto;
+    width:80%;
+}
+
+div.new-contact-link {
+    margin: 25px 0 25px 40px;
+    font-size: 18px;
+}
+
+.contact-photo {
+    margin-right: 15px;
+}
+
+.contact-name {
+    float: left;
+    margin-right: 15px;
+}
+
+.contact-edit-buttons {
+    display: none;
+}
+
+.contact-details td {
+    padding: 5px 5px 0 0;
+}
+
+span.delete-contact {
+    margin-left: 5px;
+    color: darkred;
+}
+
+div.contact-block:hover .contact-edit-buttons {
+    display: block;
+}
+
+
+div.delete-confirmation {
+    margin-top: 40px;
+    text-align:center;
+}

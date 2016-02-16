@@ -1,4 +1,21 @@
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-</form>
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    {% bootstrap_messages %}
+
+    <h1 class="text-center"> {{ title }} </h1>
+    <div class="col-lg-6 center-div">
+        <form method="POST" class="form-horizontal">
+            {% csrf_token %}
+            {% bootstrap_form form layout='horizontal' %}
+
+            <div class="pull-right">
+                <a href="{% url "list_contacts" %}"><button class="btn btn-danger" type="button">Cancel</button></a>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,4 +1,15 @@
-<form method="post">{% csrf_token %}
-    Are you sure you want to delete "{{ contact }}" ?
-    <input type="submit" value="Submit" />
-</form>
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block title %} Delete Contact {% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="delete-confirmation">
+            <p class="lead"> Are you sure you want to delete "{{ contact }}"?</p>
+            <a href="{% url "list_contacts" %}"><button class="btn btn-danger" type="button">No, back to contacts</button></a>
+            <button type="submit" class="btn btn-primary">Yes</button>
+        </div>
+    </form>
+{% endblock %}

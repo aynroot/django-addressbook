@@ -1,0 +1,23 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>{% block title %}Address Book{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contacts_common.css' %}">
+</head>
+
+<body>
+<div class="container">
+    <div class="col-md-12">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+<script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

@@ -20,7 +20,7 @@ def create_new_contact(request, template_name='edit_contact.html'):
     if form.is_valid():
         form.save()
         return redirect('list_contacts')
-    return render(request, template_name, {'form': form})
+    return render(request, template_name, {'form': form, 'title': 'Create New Contact'})
 
 
 def edit_contact(request, pk, template_name='edit_contact.html'):
@@ -29,7 +29,7 @@ def edit_contact(request, pk, template_name='edit_contact.html'):
     if form.is_valid():
         form.save()
         return redirect('list_contacts')
-    return render(request, template_name, {'form': form})
+    return render(request, template_name, {'form': form, 'title': 'Edit Contact'})
 
 
 def delete_contact(request, pk, template_name='confirm_delete_contact.html'):
@@ -37,9 +37,4 @@ def delete_contact(request, pk, template_name='confirm_delete_contact.html'):
     if request.method == 'POST':
         contact.delete()
         return redirect('list_contacts')
-    return render(request, template_name, {'contact': contact})
-
-
-def contact_details(request, pk, template_name='contact_details.html'):
-    contact = get_object_or_404(Contact, pk=pk)
-    return render(request, template_name, {'contact': contact})
+    return render(None, template_name, {'contact': contact})
