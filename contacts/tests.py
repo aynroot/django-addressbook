@@ -31,13 +31,13 @@ class ContactsCRUDTest(TestCase):
         self.assertFormError(response, 'form', 'first_name', 'This field is required.')
 
         response = self.client.post('/edit/1', {'first_name': 'Ozel', 'last_name': 'Christo',
-                                                'phone': '+4917635382129'})
+                                                'phone': '+49823878172'})
         self.assertEqual(response.status_code, 302)
         response = self.client.get(reverse('list_contacts'))
         self.assertTrue('Ozel' in response.content)
 
     def test_create_new_contact(self):
         response = self.client.get('/new', {'first_name': 'Ozel', 'last_name': 'Christo',
-                                            'phone': '+4917635382129'})
+                                            'phone': '+49823878172'})
         self.assertEqual(response.status_code, 200)
         self.assertFalse('Valeria' in response.content)

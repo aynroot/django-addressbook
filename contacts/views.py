@@ -9,7 +9,7 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ['first_name', 'last_name', 'phone', 'email', 'picture']
         widgets = {
-            'phone': forms.TextInput(attrs={'placeholder': 'Phone in format +4917635382129'})
+            'phone': forms.TextInput(attrs={'placeholder': 'Phone in format +4917671481627'})
         }
 
 
