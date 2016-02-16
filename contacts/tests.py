@@ -21,10 +21,13 @@ class ContactsCRUDTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTrue('Valeria' in response.content)
 
-    def test_delete_contacts(self):
+    def test_delete_contact(self):
         response = self.client.get('/delete/1')
         self.assertEqual(response.status_code, 200)
         self.assertFalse(r'Valeria' not in response.content)
+
+        response = self.client.get('/delete/42')
+        self.assertEqual(response.status_code, 404)
 
     def test_edit_contact(self):
         response = self.client.post('/edit/1', {'first_name': ''})
